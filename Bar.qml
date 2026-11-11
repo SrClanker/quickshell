@@ -1,26 +1,21 @@
 import Quickshell
-import Quickshell.Wayland
 
-Scope {
-  Variants {
-    model: Quickshell.screens
+Variants {
+  model: Quickshell.screens
 
-    PanelWindow {
-      required property var modelData
-      color: "#121212"
-      screen: modelData
-      WlrLayershell.layer: WlrLayer.Bottom
-      implicitHeight: 40
+  PanelWindow {
+    required property var modelData
+    color: "#121212"
+    screen: modelData
+    implicitHeight: 50
 
-      anchors {
-        top: true
-        left: true
-        right: true
-      }
-
-      ClockWidget {
-        anchors.centerIn: parent
-      }
+    anchors {
+      top: true
+      left: true
+      right: true
     }
+
+    Clock {}
+    Workspaces {}
   }
 }
