@@ -1,19 +1,24 @@
 import QtQuick
 import Quickshell
 
-Text {
-  SystemClock {
-    id: clock
-    precision: SystemClock.Minutes
-  }
-
-  readonly property string time: {
-    Qt.formatDateTime(clock.date, "h:mm AP")
-  }
-
+Rectangle {
   anchors.centerIn: parent
-  text: time
-  font.pixelSize: Theme.fontSize
-  font.family: Theme.font
-  color: "#dddddd"
+  color: "black"
+  implicitWidth: text.implicitWidth * 2
+  implicitHeight: text.implicitHeight * 2
+  radius: implicitHeight / 2
+
+  Text {
+    id: text
+    SystemClock {
+      id: clock
+      precision: SystemClock.Minutes
+    }
+
+    anchors.centerIn: parent
+    text: Qt.formatDateTime(clock.date, "h:mm AP")
+    font.pixelSize: Theme.fontSize
+    font.family: Theme.fontFamily
+    color: Theme.colorWhite
+  }
 }
