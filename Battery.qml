@@ -23,7 +23,10 @@ Rectangle {
 
     property int percentage: battery.percentage * 100
     property bool isCharging: battery ? battery.state === battery.UPowerDeviceState.Charging : false
-    text: (isCharging ? "Charging " : "Discharging ") + percentage + "%"
+    property bool isFull: percentage >= 100 || battery.state === battery.UPowerDeviceState.FullyCharged
+    text: isCharging ? "Charging " + percentage + "%"
+    : isFull ? "Full"
+    : "Discharging " + percentage + "%"
 
     anchors.centerIn: parent
     color: Theme.colorWhite
