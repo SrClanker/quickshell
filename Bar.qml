@@ -4,13 +4,13 @@ import QtQuick.Layouts
 PanelWindow {
   id: root
   color: "transparent"
-  implicitHeight: bar.implicitHeight
+  implicitHeight: 50
 
   margins {
     top: 20
     left: 40
     right: 40
-    bottom: -10
+    bottom: -20
   }
 
   anchors {
@@ -20,12 +20,7 @@ PanelWindow {
     bottom: false
   }
 
-  RowLayout {
-    id: bar
-    anchors.fill: parent
-    spacing: 8
-
-    Clock {}
-    Workspaces {}
-  }
+  Clock {}
+  Workspaces {}
+  Battery {}
 }

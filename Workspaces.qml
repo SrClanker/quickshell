@@ -3,22 +3,22 @@ import QtQuick
 import QtQuick.Layouts
 
 Rectangle {
-  anchors.left: parent.left
-  implicitWidth: row.implicitWidth + 25
+  implicitWidth: row.implicitWidth
   implicitHeight: row.implicitHeight * 2
   radius: implicitHeight / 2
   color: "black"
+  anchors.left: parent.left
+  anchors.verticalCenter: parent.verticalCenter
 
   RowLayout {
     id: row
-    anchors.fill: parent
-    anchors.margins: 10
-    anchors.centerIn: parent
     spacing: 15
-    anchors.leftMargin: 20
+    anchors.verticalCenter: parent.verticalCenter
+    Item { Layout.fillWidth: false }
 
     Repeater {
       model: 10
+
       Text {
         property var workspace: Hyprland.workspaces.values.find(w => w.id === index + 1)
         property bool isActive: Hyprland.focusedWorkspace?.id === (index + 1)
